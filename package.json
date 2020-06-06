@@ -1,0 +1,17 @@
+{
+  "name": "git-commit-report",
+  "version": "0.0.0",
+  "description": "",
+  "main": "git-commit-report.js",
+  "bin": {
+    "git-commit-report": "./git-commit-report.js"
+  },
+  "scripts": {
+    "test": "echo \"Warning: No test specified\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0"
+  }
+}
