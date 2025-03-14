@@ -57,10 +57,11 @@ for (let i = 0; i < args.length; i++) {
         if (tags === '') {
             process.stdout.write(chalk.blue('Tags: ') + chalk.red('This commit is not available in any of the tags'));
         } else {
+            const tagOrTags = tags.split(', ').length === 1 ? 'Tag' : 'Tags';
             if (commitIdentifier === 'HEAD') {
-                process.stdout.write(chalk.blue('Tags: ') + tags);
+                process.stdout.write(chalk.blue(`${tagOrTags}: `) + tags);
             } else {
-                process.stdout.write(chalk.blue('Tags: ') + chalk.yellow(tags));
+                process.stdout.write(chalk.blue(`${tagOrTags}: `) + chalk.yellow(tags));
             }
         }
         console.log('');
@@ -105,10 +106,11 @@ for (let i = 0; i < args.length; i++) {
         if (branches === '') {
             process.stdout.write(chalk.blue('Branches: ') + chalk.red('This commit is not available in any of the remote branches'));
         } else {
+            const branchOrBranches = branches.split(', ').length === 1 ? 'Branch' : 'Branches';
             if (commitIdentifier === 'HEAD') {
-                process.stdout.write(chalk.blue('Branches: ') + branches);
+                process.stdout.write(chalk.blue(`${branchOrBranches}: `) + branches);
             } else {
-                process.stdout.write(chalk.blue('Branches: ') + chalk.yellow(branches));
+                process.stdout.write(chalk.blue(`${branchOrBranches}: `) + chalk.yellow(branches));
             }
         }
         console.log('');
