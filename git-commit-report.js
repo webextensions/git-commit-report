@@ -74,10 +74,21 @@ for (let i = 0; i < args.length; i++) {
             if (verbose) {
                 console.log(chalk.gray('$ ' + cmdBranch));
             }
+
             branches = (
                 execSync(cmdBranch, {stdio : 'pipe' })
                     .toString()
-                    .replace('origin/HEAD -> origin/master', '')
+
+                    // // Approach 1
+                    // .replace('origin/HEAD -> origin/master', '')
+                    // .replace('origin/HEAD -> origin/main', '')
+
+                    // // Approach 2 (More generic)
+                    // .replace(/origin\/HEAD -> origin\/\S+/g, '')
+
+                    // Approach 3 (Even more generic)
+                    .replace(/\S+\/HEAD -> \S+\/\S+/g, '')
+
                     .trim()
                     .replace(/\s+/g, ' ')
                     .replace(/origin\//g, '')
