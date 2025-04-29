@@ -29,6 +29,10 @@ if (!args.length) {
     args.push('HEAD');
 }
 
+const naturalSort = (a, b) => {
+    return a.localeCompare(b, undefined, { numeric: true });
+};
+
 for (let i = 0; i < args.length; i++) {
     const commitIdentifier = args[i];
 
@@ -46,6 +50,7 @@ for (let i = 0; i < args.length; i++) {
                     .trim()
                     .replace(/\s+/g, ' ')
                     .split(' ')
+                    .sort(naturalSort)
                     .join(', ')
             );
         } catch (e) {
@@ -94,6 +99,7 @@ for (let i = 0; i < args.length; i++) {
                     .replace(/\s+/g, ' ')
                     .replace(/origin\//g, '')
                     .split(' ')
+                    .sort(naturalSort)
                     .join(', ')
             );
         } catch (e) {
